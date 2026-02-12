@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 de febrero · San Valentín — Español A1/A2</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      .deco-hearts, .deco-flower { opacity: 0.85; }
+    }
+
+    :root {
+      --rosa: #c44569;
+      --rosa-claro: #f8e1e8;
+      --rojo: #a63d3d;
+      --dorado: #c9a227;
+      --verde: #2d5a3d;
+      --texto: #2d2d2d;
+      --sombra: rgba(164, 61, 61, 0.15);
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: linear-gradient(160deg, #fff8f6 0%, #fef0f0 30%, #fce8e8 60%, #f8e1e8 100%);
+      color: var(--texto);
+      padding: 2rem 2.5rem 3rem;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.65;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Decoraciones de fondo */
+    .deco-hearts {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.2rem;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .deco-hearts span { position: absolute; }
+    .deco-flower {
+      position: fixed;
+      font-size: 1.5rem;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .content-wrap { position: relative; z-index: 1; }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem 1rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,225,232,0.6) 100%);
+      border-radius: 20px;
+      border: 2px solid rgba(196, 69, 105, 0.25);
+      box-shadow: 0 8px 24px var(--sombra);
+      position: relative;
+    }
+    .page-title::before, .page-title::after {
+      content: '♥';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--rosa);
+      opacity: 0.6;
+    }
+    .page-title::before { left: 1rem; }
+    .page-title::after { right: 1rem; }
+    .page-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--rojo);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .page-title .sub {
+      font-size: 0.95rem;
+      color: #6b5b5b;
+      margin-top: 0.4rem;
+    }
+    .page-title .nivel { font-size: 0.8rem; color: var(--dorado); font-weight: 600; }
+
+    /* Frases destacadas en el texto */
+    .phrase-destacada {
+      display: inline-block;
+      background: linear-gradient(120deg, rgba(196, 69, 105, 0.12) 0%, rgba(248, 225, 232, 0.5) 100%);
+      color: var(--rojo);
+      font-weight: 600;
+      padding: 0.15em 0.5em;
+      border-radius: 8px;
+      border: 1px solid rgba(196, 69, 105, 0.3);
+      margin: 0 0.1em;
+      box-shadow: 0 2px 6px var(--sombra);
+    }
+    .phrase-destacada .corazon { color: var(--rosa); font-size: 0.9em; }
+
+    .text-block {
+      background: rgba(255, 255, 255, 0.75);
+      padding: 1.5rem 1.75rem;
+      border-radius: 16px;
+      margin-bottom: 1.75rem;
+      border: 1px solid rgba(196, 69, 105, 0.2);
+      box-shadow: 0 4px 16px var(--sombra);
+    }
+    .text-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--rojo);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .text-block h2 .ico { font-size: 1.2rem; }
+    .text-block p { margin-bottom: 1rem; }
+    .text-block p:last-child { margin-bottom: 0; }
+    .glosa {
+      font-size: 0.88em;
+      color: #5c5c5c;
+      margin-left: 0.5rem;
+    }
+
+    /* Caja “En España” */
+    .caja-espana {
+      background: linear-gradient(145deg, #fdf6f8 0%, #fceef2 100%);
+      border: 2px dashed var(--rosa);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .caja-espana::before {
+      content: '🇪🇸';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: white;
+      padding: 0 0.3rem;
+      font-size: 1rem;
+    }
+    .caja-espana .tit { font-weight: 600; color: var(--rojo); margin-bottom: 0.5rem; }
+
+    /* Ejercicios */
+    .ejercicio {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(196, 69, 105, 0.2);
+      box-shadow: 0 4px 16px var(--sombra);
+    }
+    .ejercicio h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--rojo);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ejercicio .instruccion { font-size: 0.9rem; color: #555; margin-bottom: 0.75rem; }
+    .ejercicio ol, .ejercicio ul { padding-left: 1.5rem; }
+    .ejercicio li { margin-bottom: 0.6rem; }
+    .ejercicio .linea { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .ejercicio .linea input[type="text"] {
+      width: 120px;
+      padding: 0.35rem 0.5rem;
+      border: 1px solid rgba(196, 69, 105, 0.4);
+      border-radius: 8px;
+      font-family: inherit;
+    }
+    .ejercicio .match-a { min-width: 180px; }
+    .ejercicio .match-flecha { color: var(--rosa); font-weight: bold; }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    .no-print {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--rojo);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--sombra);
+      z-index: 10;
+    }
+    .no-print:hover { background: #8b3333; filter: brightness(1.05); }
+  </style>
+</head>
+<body>
+
+  <div class="deco-hearts" aria-hidden="true">
+    <span style="top: 5%; left: 3%;">♥</span>
+    <span style="top: 12%; right: 8%;">♡</span>
+    <span style="top: 35%; left: 2%;">♥</span>
+    <span style="top: 55%; right: 4%;">♡</span>
+    <span style="top: 75%; left: 6%;">♥</span>
+    <span style="top: 90%; right: 5%;">♡</span>
+  </div>
+  <div class="deco-flower" aria-hidden="true">
+    <span style="top: 8%; right: 15%;">🌸</span>
+    <span style="top: 45%; left: 5%;">🌹</span>
+    <span style="top: 70%; right: 12%;">💐</span>
+  </div>
+
+  <div class="content-wrap">
+    <header class="page-title">
+      <p class="nivel">Nivel A1 / A2</p>
+      <h1>🌸 14 de febrero — El Día de San Valentín 🌸</h1>
+      <p class="sub">El día del amor en España</p>
+    </header>
+
+    <section class="text-block">
+      <h2><span class="ico">❤️</span> Un poco de texto</h2>
+      <p>
+        El <span class="phrase-destacada">14 de febrero</span> es un día muy especial en muchos países. En España se llama <span class="phrase-destacada">El Día de San Valentín</span> o <span class="phrase-destacada">el día de los enamorados</span>. Las parejas <span class="phrase-destacada">se regalan</span> flores, chocolate y tarjetas bonitas. Las flores más populares son las <span class="phrase-destacada">rosas rojas</span> — en español «rosas» — porque el rojo es el color del amor y del <span class="phrase-destacada">corazón</span>.
+      </p>
+      <p>
+        ¿Qué dicen los españoles cuando quieren decir «te amo»? La frase más importante es <span class="phrase-destacada"><span class="corazon">♥</span> Te quiero <span class="corazon">♥</span></span>. Con <strong>Te quiero</strong> dicen «te amo» a la pareja, a la familia y a los amigos muy cercanos. También usan <span class="phrase-destacada">Te amo</span> — es más fuerte y muy romántico. Otra frase bonita es <span class="phrase-destacada">Eres el amor de mi vida</span> — «eres la persona más importante para mí».
+      </p>
+
+      <div class="caja-espana">
+        <p class="tit">En España el 14 de febrero…</p>
+        <p>Los españoles cenan con su pareja en un restaurante, regalan <strong>rosas</strong> y <strong>bombones</strong>, y a veces por la noche hay <strong>serenata</strong> — música en la calle con guitarra. En Andalucía el flamenco y la guitarra española son símbolos de pasión y amor. No olvides decir: <span class="phrase-destacada">Feliz Día de San Valentín</span> o <span class="phrase-destacada">Te quiero con todo mi corazón</span>.</p>
+      </div>
+
+      <p>
+        Las palabras cariñosas en español son muy bonitas: <span class="phrase-destacada">mi amor</span>, <span class="phrase-destacada">cariño</span>, <span class="phrase-destacada">cielo</span>, <span class="phrase-destacada">mi vida</span>, <span class="phrase-destacada">corazón</span>. Puedes decir «Gracias por estar siempre» o «Eres muy especial». ¡Practica estas frases el 14 de febrero!
+      </p>
+    </section>
+
+    <section class="ejercicio">
+      <h3><span class="ico">📝</span> Ejercicio 1 — Verdadero o Falso</h3>
+      <p class="instruccion">Lee el texto otra vez. ¿Verdadero (V) o Falso (F)?</p>
+      <ol>
+        <li class="linea">El 14 de febrero en España es el día de los enamorados. &nbsp; <input type="text" placeholder="V o F" maxlength="1"> </li>
+        <li class="linea">Los españoles solo dicen «Te amo», no «Te quiero». &nbsp; <input type="text" placeholder="V o F" maxlength="1"> </li>
+        <li class="linea">Las rosas rojas son flores típicas de San Valentín. &nbsp; <input type="text" placeholder="V o F" maxlength="1"> </li>
+        <li class="linea">«Eres el amor de mi vida» es una frase romántica. &nbsp; <input type="text" placeholder="V o F" maxlength="1"> </li>
+        <li class="linea">En España no hay serenatas con guitarra. &nbsp; <input type="text" placeholder="V o F" maxlength="1"> </li>
+      </ol>
+    </section>
+
+    <section class="ejercicio">
+      <h3><span class="ico">✏️</span> Ejercicio 2 — Completa la frase</h3>
+      <p class="instruccion">Elige la palabra correcta y escribe en el espacio.</p>
+      <p><strong>Palabras:</strong> corazón · rosas · Te quiero · San Valentín · enamorados</p>
+      <ol>
+        <li class="linea">El 14 de febrero es el Día de ________________. <input type="text" placeholder="..."> </li>
+        <li class="linea">En español «Я тебя люблю» = ________________. <input type="text" placeholder="..."> </li>
+        <li class="linea">Las ________________ rojas son el símbolo del amor. <input type="text" placeholder="..."> </li>
+        <li class="linea">«Te quiero con todo mi ________________» — люблю всем сердцем. <input type="text" placeholder="..."> </li>
+        <li class="linea">El día de los ________________ — день влюблённых. <input type="text" placeholder="..."> </li>
+      </ol>
+    </section>
+
+    <section class="ejercicio">
+      <h3><span class="ico">💕</span> Ejercicio 3 — Une las frases (español — significado)</h3>
+      <p class="instruccion">Relaciona la frase en español con su significado. Escribe la letra (A, B, C…) en el espacio.</p>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>Español:</strong></li>
+        <li>1. Te quiero &nbsp; <span class="match-flecha">→</span> &nbsp; <input type="text" placeholder="letra" class="match-a" maxlength="1"> </li>
+        <li>2. Feliz Día de San Valentín &nbsp; <span class="match-flecha">→</span> &nbsp; <input type="text" placeholder="letra" class="match-a" maxlength="1"> </li>
+        <li>3. Eres el amor de mi vida &nbsp; <span class="match-flecha">→</span> &nbsp; <input type="text" placeholder="letra" class="match-a" maxlength="1"> </li>
+        <li>4. mi corazón &nbsp; <span class="match-flecha">→</span> &nbsp; <input type="text" placeholder="letra" class="match-a" maxlength="1"> </li>
+        <li>5. Gracias por estar siempre &nbsp; <span class="match-flecha">→</span> &nbsp; <input type="text" placeholder="letra" class="match-a" maxlength="1"> </li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>Significados:</strong></p>
+      <p>A — Счастливого Дня святого Валентина &nbsp; &nbsp; B — Я тебя люблю &nbsp; &nbsp; C — Ты любовь всей моей жизни &nbsp; &nbsp; D — моё сердечко &nbsp; &nbsp; E — Спасибо, что ты всегда рядом</p>
+    </section>
+
+    <div class="footer">
+      ♥ Español A1/A2 · 14 de febrero · San Valentín ♥
+    </div>
+  </div>
+
+  <button class="no-print" onclick="window.print();" type="button">🖨️ Guardar como PDF</button>
+
+</body>
+</html>
